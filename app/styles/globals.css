@@ -1,0 +1,294 @@
+@media screen {
+  :root {
+    --brand-primary: #009077;
+    --brand-primary-contrast: #ffffff;
+    --brand-accent: #00b894;
+    --brand-accent-light: #55d5bb;
+    --brand-accent-dark: #006b5a;
+
+    --brand-secondary: #0984a3;
+    --brand-secondary-light: #2ea3cc;
+    --brand-tertiary: #006d77;
+
+    --status-success: #27ae60;
+    --status-warning: #f39c12;
+    --status-error: #e74c3c;
+    --status-info: #3498db;
+
+    --neutral-white: #ffffff;
+    --neutral-light-gray: #f8fffe;
+    --neutral-gray: #d0e3e0;
+    --neutral-medium-gray: #6c7b7d;
+    --neutral-dark-gray: #2c3e50;
+    --neutral-black: #1a1a1a;
+
+    --background-main: #ffffff;
+    --background-secondary: #f8fffe;
+    --background-card: #ffffff;
+    --background-hover: #f0f9f7;
+    --background-accent: #e8f6f3;
+
+    --teal-50: #f0fdfa;
+    --teal-100: #ccfbf1;
+    --teal-200: #99f6e4;
+    --teal-300: #5eead4;
+    --teal-400: #2dd4bf;
+    --teal-500: #14b8a6;
+    --teal-600: #0d9488;
+    --teal-700: #0f766e;
+    --teal-800: #115e59;
+    --teal-900: #134e4a;
+
+    --shadow-subtle: 0 2px 4px rgba(0, 144, 119, 0.08);
+    --shadow-moderate: 0 4px 8px rgba(0, 144, 119, 0.12);
+    --shadow-prominent: 0 8px 16px rgba(0, 144, 119, 0.15);
+    --shadow-intense: 0 12px 24px rgba(0, 144, 119, 0.2);
+    --shadow-brand: 0 4px 12px rgba(0, 144, 119, 0.25);
+
+    --corner-sharp: 0px;
+    --corner-subtle: 4px;
+    --corner-moderate: 8px;
+    --corner-prominent: 12px;
+    --corner-bold: 16px;
+    --corner-circle: 50%;
+
+    --space-tiny: 4px;
+    --space-small: 8px;
+    --space-medium: 16px;
+    --space-large: 24px;
+    --space-huge: 32px;
+    --space-massive: 48px;
+
+    --text-tiny: 12px;
+    --text-small: 14px;
+    --text-normal: 16px;
+    --text-medium: 18px;
+    --text-large: 20px;
+    --text-big: 24px;
+    --text-huge: 30px;
+    --text-massive: 36px;
+
+    --header-height: 60px;
+    --sidebar-width: 250px;
+    --mobile-menu-width: 280px;
+    --max-content-width: 1200px;
+
+    --transition-fast: all 0.15s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    --animation-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --border-thin: 1px solid #d0e3e0;
+    --border-medium: 2px solid #00b894;
+    --border-thick: 3px solid #009077;
+    --border-brand: 1px solid var(--brand-primary);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--neutral-dark-gray);
+    background-color: var(--background-main);
+    font-size: var(--text-normal);
+  }
+
+  a,
+  router-link {
+    text-decoration: none;
+    color: var(--brand-primary);
+    transition: var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--brand-accent);
+  }
+
+  input,
+  textarea,
+  select {
+    outline: none;
+    border: var(--border-thin);
+    border-radius: var(--corner-moderate);
+    padding: var(--space-small) var(--space-medium);
+    font-size: var(--text-normal);
+    font-family: inherit;
+    transition: var(--transition-normal);
+    background-color: var(--neutral-white);
+    color: var(--neutral-dark-gray);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--neutral-medium-gray);
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(0, 144, 119, 0.1);
+    outline: none;
+    background-color: var(--teal-50);
+  }
+
+  /* Prevent mobile zoom */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: var(--text-normal);
+  }
+
+  button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    border-radius: var(--corner-moderate);
+    padding: var(--space-small) var(--space-medium);
+    font-size: var(--text-normal);
+    font-family: inherit;
+    background-color: var(--brand-primary);
+    color: var(--neutral-white);
+    font-weight: 500;
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-brand);
+    background-color: var(--brand-accent-dark);
+  }
+
+  button:active {
+    transform: translateY(0);
+    background-color: var(--brand-accent-dark);
+  }
+
+  button.secondary {
+    background-color: var(--background-accent);
+    color: var(--brand-primary);
+    border: var(--border-brand);
+  }
+
+  button.secondary:hover {
+    background-color: var(--teal-100);
+    color: var(--brand-accent-dark);
+  }
+
+  button.outline {
+    background-color: transparent;
+    color: var(--brand-primary);
+    border: var(--border-brand);
+  }
+
+  button.outline:hover {
+    background-color: var(--brand-primary);
+    color: var(--neutral-white);
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-accent-light) var(--background-secondary);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+  border-radius: var(--corner-subtle);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--brand-accent-light);
+  border-radius: var(--corner-subtle);
+  border: 2px solid var(--background-secondary);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--brand-primary);
+}
+
+.loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--teal-100) 25%,
+    var(--teal-200) 50%,
+    var(--teal-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-loading 1.5s infinite;
+  border-radius: var(--corner-moderate);
+}
+
+@keyframes shimmer-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--teal-200);
+  color: var(--brand-accent-dark);
+}
+
+
+/* Mobile Landscape & Small Tablets (768px+) */
+@media only screen and (min-width: 48em) {
+  :root {
+    --text-normal: 17px;
+  }
+
+  *::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Tablets & Small Laptops (784px - 1024px) */
+@media only screen and (min-width: 49em) and (max-width: 64em) {
+  :root {
+    --header-height: 70px;
+    --sidebar-width: 280px;
+  }
+}
+
+/* Desktop & Large Laptops (1025px - 1440px) */
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  :root {
+    --space-medium: 20px;
+    --space-large: 32px;
+    --text-huge: 36px;
+  }
+}
+
+/* Large Monitors & 4K Screens (1441px+) */
+@media only screen and (min-width: 91em) {
+  :root {
+    --max-content-width: 1400px;
+    --text-normal: 18px;
+    --space-huge: 48px;
+  }
+}

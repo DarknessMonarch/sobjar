@@ -144,16 +144,19 @@
 
 /* Default Desktop Styles */
 @media only screen and (min-width: 48em) {
+  .navContainer {
+    gap: 10px;
+  }
+
   .navLogoImg {
     height: 80px;
   }
 
   .navlinksContainer {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-end;
     gap: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .navlinksContainer.mobile {
@@ -169,11 +172,14 @@
   }
 
   .navItemContainer {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    position: relative;
+  }
+
+  .navItemLinkContainer {
+    height: inherit;
   }
 
   .navlinks {
@@ -182,12 +188,12 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    padding: 10px 15px;
     height: 100%;
+    padding: 5px 10px;
     background-color: var(--neutral-white);
-    min-width: 120px;
     text-decoration: none;
-    color: inherit;
+    color: var(--neutral-black-light);
+    min-width: 80px;
   }
 
   .navlinks:hover {
@@ -202,15 +208,12 @@
 
   .dropdown {
     position: absolute;
-    left: 0;
     top: 100%;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 300px;
-    background-color: var(--background-main);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--background-secondary);
     animation: dropdownFadeIn 0.3s ease-out;
-    box-shadow: var(--shadow-subtle);
     z-index: 1000;
   }
 
@@ -291,11 +294,9 @@
   @keyframes dropdownFadeIn {
     from {
       opacity: 0;
-      transform: translateX(-50%) translateY(-10px);
     }
     to {
       opacity: 1;
-      transform: translateX(-50%) translateY(0);
     }
   }
 

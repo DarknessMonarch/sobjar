@@ -80,7 +80,7 @@ export default function SobjarNavbar() {
       const mobile = window.innerWidth < 768;
       setMobile(mobile);
       if (!mobile) {
-        setClose(); // Close mobile menu when switching to desktop
+        setClose();
       }
     };
 
@@ -93,7 +93,7 @@ export default function SobjarNavbar() {
 
   const handleNavItemClick = () => {
     if (isMobile) {
-      setClose(); // Close mobile menu when nav item is clicked
+      setClose();
     }
   };
 
@@ -102,14 +102,13 @@ export default function SobjarNavbar() {
       <div className={styles.navLogo} onClick={handleLogoClick}>
         <Image
           src={LogoImg}
-          alt="SOBJAR Community Logo"
+          alt="Logo"
           width={100}
           priority
           className={styles.navLogoImg}
         />
       </div>
 
-      {/* Desktop navigation - always visible on desktop */}
       {!isMobile && (
         <div className={styles.navlinksContainer}>
           {navItems.map((item, index) => (
@@ -128,7 +127,6 @@ export default function SobjarNavbar() {
         </div>
       )}
 
-      {/* Mobile navigation - conditionally visible */}
       {isMobile && isOpen && (
         <div className={`${styles.navlinksContainer} ${styles.mobile}`}>
           {navItems.map((item, index) => (
@@ -193,7 +191,7 @@ function NavItem({
       setActiveDropdown(isActive ? null : index);
     } else {
       if (isMobile) {
-        onNavItemClick(); // Close mobile menu
+        onNavItemClick(); 
       }
       router.push(item.href);
     }
@@ -217,7 +215,7 @@ function NavItem({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div onClick={handleInteraction}>
+      <div className={styles.navItemLinkContainer} onClick={handleInteraction}>
         <Link
           href={item.href}
           className={`${styles.navlinks} ${

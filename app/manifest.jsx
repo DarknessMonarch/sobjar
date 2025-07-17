@@ -1,15 +1,15 @@
 export default function manifest() {
   return {
-    name: 'Filmcounts',
-    short_name: 'Filmcounts',
-    description: 'Manage your budgets well',
+    name: 'Sobjar',
+    short_name: 'Sobjar',
+    description: 'Taking care of our youths',
     start_url: '/',
     scope: '/',
     display: 'standalone',
     orientation: 'portrait',
     background_color: '#F0F6F4',
     theme_color: '#2D3748',
-    categories: ['finance', 'budget', 'money', 'assets', 'loan', 'requisition', 'bank'],
+    categories: ['youth', "community", "ngo", 'canada youth', 'canada ngo', 'canada community'],
     
     icons: [
       {
@@ -51,9 +51,9 @@ export default function manifest() {
     related_applications: [],
     shortcuts: [
       {
-        name: 'Filmcounts',
-        short_name: 'Filmcounts',
-        description: 'Manage your budgets well',
+        name: 'Sobjar',
+        short_name: 'Sobjar',
+        description: 'Taking care of our youths',
         url: '/',
         icons: [{ src: '/assets/logo.png', sizes: '96x96' }]
       },

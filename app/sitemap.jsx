@@ -1,5 +1,5 @@
 export default async function sitemap() {
-  const baseUrl = 'https://filmcounts.vercel.app/';
+  const baseUrl = 'https://sobjarcanada.org';
   
 
   

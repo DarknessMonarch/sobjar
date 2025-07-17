@@ -12,17 +12,9 @@ export const useAuthStore = create(
       userId: "",
       username: "",
       email: "",
-      country: "",
       profileImage: "",
-      isVip: false,
-      vipPlan: "", // weekly, monthly, yearly
-      vipPlanDisplayName: "", // Weekly, Monthly, Yearly
-      duration: 0, // 7, 30, 365 days
-      expires: null,
-      activation: null,
       isAdmin: false,
       isAuthorized: false,
-      payment: 0,
       accessToken: "",
       refreshToken: "",
       lastLogin: null,
@@ -32,7 +24,6 @@ export const useAuthStore = create(
 
       // Admin dashboard stats
       activeUsersCount: 0,
-      vipUsersCount: 0,
       adminUsersCount: 0,
 
       setUser: (userData) => {
@@ -42,15 +33,7 @@ export const useAuthStore = create(
           userId: userData.id,
           username: userData.username,
           email: userData.email,
-          payment: userData.payment || 0,
-          duration: userData.duration || 0,
-          expires: userData.expires || null,
-          activation: userData.activation || null,
-          country: userData.country || "",
           profileImage: userData.profileImage || "",
-          isVip: userData.isVip || false,
-          vipPlan: userData.vipPlan || "",
-          vipPlanDisplayName: userData.vipPlanDisplayName || "",
           isAdmin: userData.isAdmin || false,
           isAuthorized: userData.isAuthorized || false,
           emailVerified: userData.emailVerified || false,
@@ -76,17 +59,9 @@ export const useAuthStore = create(
           userId: "",
           username: "",
           email: "",
-          country: "",
           profileImage: "",
-          isVip: false,
-          vipPlan: "",
-          vipPlanDisplayName: "",
-          duration: 0,
-          expires: null,
-          activation: null,
           isAdmin: false,
           isAuthorized: false,
-          payment: 0,
           accessToken: "",
           refreshToken: "",
           lastLogin: null,
@@ -171,7 +146,6 @@ export const useAuthStore = create(
             return { 
               success: true, 
               message: data.message,
-              isVip: data.data.user.isVip, 
               isAdmin: data.data.user.isAdmin 
             };
           }
@@ -200,7 +174,7 @@ export const useAuthStore = create(
           get().clearUser();
           return { success: true, message: "Logout successful" };
         } catch (error) {
-          get().clearUser(); // Clear user data even if request fails
+          get().clearUser();
           return { success: true, message: "Logged out" };
         }
       },
@@ -376,61 +350,7 @@ export const useAuthStore = create(
         }
       },
 
-      // Get payment plans for authenticated users
-      getPaymentPlans: async () => {
-        try {
-          const { accessToken } = get();
-          const response = await fetch(`${SERVER_API}/auth/payment-plans`, {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          });
-
-          const data = await response.json();
-          return { 
-            success: data.status === "success", 
-            data: data.data,
-            message: data.message 
-          };
-        } catch (error) {
-          return { success: false, message: "Failed to fetch payment plans" };
-        }
-      },
-
       // Admin functions
-      toggleVipStatus: async (userData) => {
-        try {
-          const { accessToken } = get();
-          
-          const { userId, isVip, payment, duration } = userData;
-          
-          if (isVip && (!payment || !duration || ![7, 30, 365].includes(duration))) {
-            return { 
-              success: false, 
-              message: "Invalid VIP data. Payment and valid duration (7, 30, or 365 days) are required." 
-            };
-          }
-
-          const response = await fetch(`${SERVER_API}/auth/admin/toggle-vip`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${accessToken}`,
-            },
-            body: JSON.stringify({ userId, isVip, payment, duration }),
-          });
-
-          const data = await response.json();
-          if (data.status === "success") {
-            // Refresh user counts
-            await get().getAllUsers();
-            await get().getUsersByRole('vip');
-            return { success: true, message: data.message, data: data.data };
-          }
-          return { success: false, message: data.message };
-        } catch (error) {
-          return { success: false, message: "VIP status update failed" };
-        }
-      },
-
       toggleAdmin: async (userId, makeAdmin) => {
         try {
           const { accessToken } = get();
@@ -472,7 +392,6 @@ export const useAuthStore = create(
           if (data.status === "success") {
             // Refresh user counts after bulk deletion
             await get().getAllUsers();
-            await get().getUsersByRole('vip');
             await get().getUsersByRole('admin');
           }
           return {
@@ -502,7 +421,6 @@ export const useAuthStore = create(
           if (data.status === "success") {
             // Refresh user counts after deletion
             await get().getAllUsers();
-            await get().getUsersByRole('vip');
             await get().getUsersByRole('admin');
           }
           return { success: data.status === "success", message: data.message };
@@ -529,66 +447,30 @@ export const useAuthStore = create(
         }
       },
 
-      getUsersByRole: async (role, action, userId) => {
+      getUsersByRole: async (role) => {
         try {
           const { accessToken } = get();
-          let url = `${SERVER_API}/auth/admin/users/by-role?role=${role}`;
-          let options = {
-            method: "GET",
+          const response = await fetch(`${SERVER_API}/auth/admin/users/by-role?role=${role}`, {
             headers: { Authorization: `Bearer ${accessToken}` },
-          };
+          });
 
-          if (action === "delete" && userId) {
-            url += `&action=${action}`;
-            options = {
-              method: "GET", // Changed to GET as per the controller logic
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${accessToken}`,
-              },
-              body: JSON.stringify({ userId }),
-            };
-          }
-
-          const response = await fetch(url, options);
           const data = await response.json();
-          
           if (data.status === "success") {
-            if (role === 'vip') {
-              set({ vipUsersCount: data.data.count });
-            } else if (role === 'admin') {
+            if (role === 'admin') {
               set({ adminUsersCount: data.data.count });
             }
             return { success: true, data: data.data };
           }
           return { success: false, message: data.message };
         } catch (error) {
-          return { success: false, message: "Failed to fetch/update users by role" };
+          return { success: false, message: "Failed to fetch users by role" };
         }
       },
 
-      getRevenueAnalytics: async () => {
+      sendNewsletter: async (emailData) => {
         try {
           const { accessToken } = get();
-          const response = await fetch(`${SERVER_API}/auth/admin/analytics/revenue`, {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          });
-
-          const data = await response.json();
-          return { 
-            success: data.status === "success", 
-            data: data.data,
-            message: data.message 
-          };
-        } catch (error) {
-          return { success: false, message: "Failed to fetch revenue analytics" };
-        }
-      },
-
-      sendBulkEmails: async (emailData) => {
-        try {
-          const { accessToken } = get();
-          const response = await fetch(`${SERVER_API}/auth/admin/email/bulk`, {
+          const response = await fetch(`${SERVER_API}/auth/admin/newsletter`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -604,12 +486,11 @@ export const useAuthStore = create(
             data: data.data 
           };
         } catch (error) {
-          return { success: false, message: "Failed to send bulk emails" };
+          return { success: false, message: "Failed to send newsletter" };
         }
       },
 
       setActiveUsersCount: (count) => set({ activeUsersCount: count }),
-      setVipUsersCount: (count) => set({ vipUsersCount: count }),
       setAdminUsersCount: (count) => set({ adminUsersCount: count }),
 
       // Token management
@@ -634,49 +515,6 @@ export const useAuthStore = create(
           set({ refreshTimeoutId: null });
         }
       },
-
-      getVipPlanDisplayName: (duration) => {
-        switch (duration) {
-          case 7:
-            return 'Weekly';
-          case 30:
-            return 'Monthly';
-          case 365:
-            return 'Yearly';
-          default:
-            return 'Custom';
-        }
-      },
-
-      getVipPlanType: (duration) => {
-        switch (duration) {
-          case 7:
-            return 'weekly';
-          case 30:
-            return 'monthly';
-          case 365:
-            return 'yearly';
-          default:
-            return 'custom';
-        }
-      },
-
-      isVipActive: () => {
-        const { isVip, expires } = get();
-        return isVip && expires && new Date(expires) > new Date();
-      },
-
-      getVipTimeRemaining: () => {
-        const { expires } = get();
-        if (!expires) return 0;
-        const remaining = new Date(expires) - new Date();
-        return Math.max(0, remaining);
-      },
-
-      getVipDaysRemaining: () => {
-        const timeRemaining = get().getVipTimeRemaining();
-        return Math.ceil(timeRemaining / (1000 * 60 * 60 * 24));
-      },
     }),
     {
       name: "auth-store",
@@ -686,24 +524,15 @@ export const useAuthStore = create(
         userId: state.userId,
         username: state.username,
         email: state.email,
-        country: state.country,
         profileImage: state.profileImage,
-        isVip: state.isVip,
-        vipPlan: state.vipPlan,
-        vipPlanDisplayName: state.vipPlanDisplayName,
-        duration: state.duration,
-        expires: state.expires,
-        activation: state.activation,
         isAdmin: state.isAdmin,
         isAuthorized: state.isAuthorized,
-        payment: state.payment,
         accessToken: state.accessToken,
         refreshToken: state.refreshToken,
         lastLogin: state.lastLogin,
         tokenExpirationTime: state.tokenExpirationTime,
         emailVerified: state.emailVerified,
         activeUsersCount: state.activeUsersCount,
-        vipUsersCount: state.vipUsersCount,
         adminUsersCount: state.adminUsersCount,
       }),
     }

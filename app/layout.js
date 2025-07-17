@@ -1,18 +1,20 @@
-import { Geist } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "@/app/styles/global.css";
 import { Toaster } from 'sonner';
+import Navbar from "@/app/component/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-
+const open_sans = Open_Sans({
+  display: "swap",
+  subsets: ["cyrillic"],
+  variable: "--font-open-sans",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const SITE_URL = "https://sobjar.org/";
+const SITE_URL = "https://sobjarcanada.org/";
 const BANNER_URL = "https://raw.githubusercontent.com/DarknessMonarch/sobjar/refs/heads/master/public/assets/banner.png";
 
 export const viewport = {
-  themeColor: "#233f96",
+  themeColor: "#009077",
 };
 
 export const metadata = {
@@ -84,7 +86,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable}`}>
+      <body className={`${open_sans.variable}`}>
         <Toaster
           position="top-center"
           richColors={true}
@@ -96,6 +98,7 @@ export default function RootLayout({ children }) {
             },
           }}
         />
+        <Navbar />
         {children}
       </body>
     </html>

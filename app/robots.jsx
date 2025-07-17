@@ -28,7 +28,7 @@ export default function robots() {
         userAgent: 'CCBot',
       }
     ],
-    sitemap: 'https://filmcounts.vercel.app/sitemap.xml',
-    host: 'https://filmcounts.vercel.app/'
+    sitemap: 'https://sobjarcanada.org/sitemap.xml',
+    host: 'https://sobjarcanada.org/'
   }
 }

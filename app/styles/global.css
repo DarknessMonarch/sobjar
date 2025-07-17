@@ -93,6 +93,7 @@
   body {
     font-weight: 400;
     line-height: 1.6;
+     
     color: var(--neutral-dark-gray);
     background-color: var(--background-main);
     font-size: var(--text-normal);
@@ -101,7 +102,7 @@
   a,
   router-link {
     text-decoration: none;
-    color: var(--brand-primary);
+    color: var(--neutral-dark-gray);
     transition: var(--transition-fast);
   }
 
@@ -164,43 +165,12 @@
     font-weight: 500;
   }
 
-  button:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-brand);
-    background-color: var(--brand-accent-dark);
-  }
 
-  button:active {
-    transform: translateY(0);
-    background-color: var(--brand-accent-dark);
-  }
-
-  button.secondary {
-    background-color: var(--background-accent);
-    color: var(--brand-primary);
-    border: var(--border-brand);
-  }
-
-  button.secondary:hover {
-    background-color: var(--teal-100);
-    color: var(--brand-accent-dark);
-  }
-
-  button.outline {
-    background-color: transparent;
-    color: var(--brand-primary);
-    border: var(--border-brand);
-  }
-
-  button.outline:hover {
-    background-color: var(--brand-primary);
-    color: var(--neutral-white);
-  }
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--brand-accent-light) var(--background-secondary);
+  scrollbar-color: var(--neutral-black) var(--background-secondary);
 }
 
 *::-webkit-scrollbar {
@@ -214,7 +184,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--brand-accent-light);
+  background-color: var(--neutral-black);
   border-radius: var(--corner-subtle);
   border: 2px solid var(--background-secondary);
 }

@@ -1,0 +1,23 @@
+@media screen {
+ 
+}
+
+
+/* Mobile Landscape & Small Tablets (768px+) */
+@media only screen and (min-width: 48em) {
+ 
+}
+
+/* Tablets & Small Laptops (784px - 1024px) */
+@media only screen and (min-width: 49em) and (max-width: 64em) {
+
+}
+
+/* Desktop & Large Laptops (1025px - 1440px) */
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+
+}
+/* Large Monitors & 4K Screens (1441px+) */
+@media only screen and (min-width: 91em) {
+
+}

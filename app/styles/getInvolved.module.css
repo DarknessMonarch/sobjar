@@ -1,0 +1,629 @@
+@media screen {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Container */
+  .getInvolvedContainer {
+    width: 100%;
+    background-color: var(--background-main);
+  }
+
+  /* Hero Section */
+  .heroSection {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+    color: var(--neutral-white);
+    padding: var(--space-massive) var(--space-medium);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .heroContent {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  }
+
+  .heroTitle {
+    font-size: var(--text-massive);
+    font-weight: 700;
+    margin-bottom: var(--space-medium);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .heroSubtitle {
+    font-size: var(--text-large);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: var(--space-huge);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+  }
+
+  .heroStats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-huge);
+    flex-wrap: wrap;
+    margin-top: var(--space-large);
+  }
+
+  .statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .statItem:nth-child(1) { animation-delay: 0.4s; }
+  .statItem:nth-child(2) { animation-delay: 0.6s; }
+  .statItem:nth-child(3) { animation-delay: 0.8s; }
+  .statItem:nth-child(4) { animation-delay: 1s; }
+
+  .statNumber {
+    font-size: var(--text-huge);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: var(--space-tiny);
+  }
+
+  .statLabel {
+    font-size: var(--text-small);
+    font-weight: 500;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Main Content */
+  .mainContent {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: var(--space-massive) var(--space-medium);
+  }
+
+  /* Introduction Section */
+  .introSection {
+    text-align: center;
+    margin-bottom: var(--space-massive);
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+  }
+
+  .sectionTitle {
+    font-size: var(--text-huge);
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: var(--space-medium);
+    line-height: 1.3;
+  }
+
+  .sectionDescription {
+    font-size: var(--text-medium);
+    line-height: 1.7;
+    color: var(--neutral-medium-gray);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Options Grid */
+  .optionsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-huge);
+    margin-bottom: var(--space-massive);
+  }
+
+  .optionCard {
+    display: flex;
+    background: var(--background-card);
+    border-radius: var(--corner-prominent);
+    overflow: hidden;
+    box-shadow: var(--shadow-moderate);
+    transition: var(--transition-normal);
+    border: var(--border-thin);
+    position: relative;
+  }
+
+  .optionCard:hover {
+    box-shadow: var(--shadow-prominent);
+    transform: translateY(-4px);
+  }
+
+  .optionCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--brand-primary);
+  }
+
+  .optionCard.secondary::before {
+    background: var(--brand-secondary);
+  }
+
+  .optionCard.tertiary::before {
+    background: var(--brand-tertiary);
+  }
+
+  .cardContent {
+    flex: 1;
+    padding: var(--space-huge);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardHeader {
+    margin-bottom: var(--space-medium);
+  }
+
+  .cardTitle {
+    font-size: var(--text-big);
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: var(--space-tiny);
+    line-height: 1.3;
+  }
+
+  .cardSubtitle {
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--brand-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cardDescription {
+    font-size: var(--text-normal);
+    line-height: 1.6;
+    color: var(--neutral-medium-gray);
+    margin-bottom: var(--space-large);
+  }
+
+  .featureList {
+    list-style: none;
+    margin-bottom: var(--space-large);
+  }
+
+  .featureItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-small);
+    margin-bottom: var(--space-small);
+    font-size: var(--text-normal);
+    color: var(--neutral-dark-gray);
+  }
+
+  .featureIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: var(--corner-circle);
+    background: var(--brand-accent);
+    color: var(--neutral-white);
+    font-size: var(--text-tiny);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .cardButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-medium) var(--space-large);
+    background: var(--brand-primary);
+    color: var(--neutral-white);
+    border-radius: var(--corner-moderate);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-normal);
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  .cardButton:hover {
+    background: var(--brand-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-brand);
+  }
+
+  .cardImageContainer {
+    width: 350px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-normal);
+  }
+
+  .optionCard:hover .cardImage {
+    transform: scale(1.05);
+  }
+
+  /* Impact Section */
+  .impactSection {
+    background: var(--background-accent);
+    border-radius: var(--corner-prominent);
+    padding: var(--space-massive);
+    margin-bottom: var(--space-massive);
+  }
+
+  .impactContent {
+    display: flex;
+    align-items: center;
+    gap: var(--space-massive);
+  }
+
+  .impactText {
+    flex: 1;
+  }
+
+  .impactTitle {
+    font-size: var(--text-huge);
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: var(--space-medium);
+    line-height: 1.3;
+  }
+
+  .impactDescription {
+    font-size: var(--text-medium);
+    line-height: 1.7;
+    color: var(--neutral-medium-gray);
+    margin-bottom: var(--space-large);
+  }
+
+  .impactHighlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-medium);
+  }
+
+  .highlight h4 {
+    font-size: var(--text-normal);
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: var(--space-tiny);
+  }
+
+  .highlight p {
+    font-size: var(--text-small);
+    color: var(--neutral-medium-gray);
+    line-height: 1.6;
+  }
+
+  .impactImageContainer {
+    width: 400px;
+    border-radius: var(--corner-moderate);
+    overflow: hidden;
+    box-shadow: var(--shadow-moderate);
+  }
+
+  .impactImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* CTA Section */
+  .ctaSection {
+    text-align: center;
+    padding: var(--space-massive);
+    background: linear-gradient(135deg, var(--teal-50) 0%, var(--teal-100) 100%);
+    border-radius: var(--corner-prominent);
+    border: var(--border-thin);
+  }
+
+  .ctaContent {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .ctaTitle {
+    font-size: var(--text-huge);
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: var(--space-medium);
+    line-height: 1.3;
+  }
+
+  .ctaDescription {
+    font-size: var(--text-medium);
+    line-height: 1.7;
+    color: var(--neutral-medium-gray);
+    margin-bottom: var(--space-huge);
+  }
+
+  .ctaButtons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-medium);
+    flex-wrap: wrap;
+  }
+
+  .ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-medium) var(--space-huge);
+    border-radius: var(--corner-moderate);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-normal);
+    font-size: var(--text-normal);
+  }
+
+  .ctaButton.primary {
+    background: var(--brand-primary);
+    color: var(--neutral-white);
+  }
+
+  .ctaButton.primary:hover {
+    background: var(--brand-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-brand);
+  }
+
+  .ctaButton.secondary {
+    background: var(--neutral-white);
+    color: var(--brand-primary);
+    border: 2px solid var(--brand-primary);
+  }
+
+  .ctaButton.secondary:hover {
+    background: var(--brand-primary);
+    color: var(--neutral-white);
+    transform: translateY(-2px);
+  }
+
+  /* Animation Classes */
+  .fadeInSection {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (768px+) */
+@media only screen and (min-width: 48em) {
+  .heroStats {
+    gap: var(--space-massive);
+  }
+
+  .statNumber {
+    font-size: 3rem;
+  }
+
+  .optionCard {
+    flex-direction: row;
+  }
+
+  .optionCard:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .cardImageContainer {
+    width: 400px;
+  }
+
+  .impactHighlights {
+    flex-direction: row;
+    gap: var(--space-large);
+  }
+
+  .ctaButtons {
+    flex-wrap: nowrap;
+  }
+}
+
+/* Large Monitors & 4K Screens (1441px+) */
+@media only screen and (min-width: 91em) {
+  .heroTitle {
+    font-size: 4rem;
+  }
+
+  .heroSubtitle {
+    font-size: var(--text-big);
+  }
+
+  .cardImageContainer {
+    width: 450px;
+  }
+
+  .impactImageContainer {
+    width: 500px;
+  }
+}
+
+/* Mobile Specific Styles */
+@media only screen and (max-width: 47.9375em) {
+
+
+  .heroSection {
+    padding: var(--space-large) var(--space-small);
+  }
+
+  .heroTitle {
+    font-size: var(--text-big);
+  }
+
+  .heroSubtitle {
+    font-size: var(--text-normal);
+  }
+
+  .heroStats {
+    gap: var(--space-medium);
+  }
+
+  .statNumber {
+    font-size: var(--text-big);
+  }
+
+  .mainContent {
+    padding: var(--space-large) var(--space-small);
+  }
+
+  .sectionTitle {
+    font-size: var(--text-big);
+  }
+
+  .optionsGrid {
+    gap: var(--space-large);
+  }
+
+  .optionCard {
+    flex-direction: column;
+  }
+
+  .cardContent {
+    padding: var(--space-large);
+  }
+
+  .cardTitle {
+    font-size: var(--text-large);
+  }
+
+  .cardImageContainer {
+    width: 100%;
+    height: 250px;
+  }
+
+  .impactSection {
+    padding: var(--space-large);
+  }
+
+  .impactContent {
+    flex-direction: column;
+    gap: var(--space-large);
+  }
+
+  .impactTitle {
+    font-size: var(--text-big);
+  }
+
+  .impactHighlights {
+    gap: var(--space-medium);
+  }
+
+  .impactImageContainer {
+    width: 100%;
+    height: 300px;
+  }
+
+  .ctaSection {
+    padding: var(--space-large);
+  }
+
+  .ctaTitle {
+    font-size: var(--text-big);
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: var(--space-small);
+  }
+
+  .ctaButton {
+    width: 100%;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .fadeInSection,
+  .heroContent,
+  .statItem {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .optionCard:hover,
+  .cardButton:hover,
+  .ctaButton.primary:hover,
+  .ctaButton.secondary:hover {
+    transform: none;
+  }
+
+  .cardImage {
+    transition: none;
+  }
+
+  .optionCard:hover .cardImage {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .optionCard {
+    border: 3px solid var(--neutral-dark-gray);
+  }
+
+  .cardButton {
+    border: 2px solid var(--neutral-white);
+  }
+
+  .ctaButton.secondary {
+    border-width: 3px;
+  }
+
+  .featureIcon {
+    border: 2px solid var(--neutral-white);
+  }
+}

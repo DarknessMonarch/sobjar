@@ -12,16 +12,17 @@ import { FiMenu as MenuIcon } from "react-icons/fi";
 import { usePathname, useRouter } from "next/navigation";
 import { MdOutlineClose as CloseIcon } from "react-icons/md";
 import { IoChevronDown as ChevronDown } from "react-icons/io5";
+import { IoAdd as PlusIcon, IoRemove as MinusIcon } from "react-icons/io5";
 import { useEffect, useState } from "react";
 
 const navItems = [
   {
-    name: "About Us",
+    name: "About",
     href: "/about",
     dropdown: [
-      { name: "Our Story", href: "/about/story" },
-      { name: "Leadership", href: "/about/leadership" },
-      { name: "Team", href: "/about/team" },
+      { name: "Our Story", href: "/about#story" },
+      { name: "Leadership", href: "/about#leadership" },
+      { name: "Our Team", href: "/about#team" },
     ],
     title: "About Sobjar Canada",
     description:
@@ -31,14 +32,14 @@ const navItems = [
     imageDescription:
       "Discover the transformative journey of Somali youth through our mission to empower them for a brighter tomorrow.",
   },
-  { name: "Our Mission", href: "/mission" },
+  { name: "Mission", href: "/mission" },
   {
     name: "Programs",
     href: "/programs",
     dropdown: [
-      { name: "Youth Programs", href: "/programs/youth" },
-      { name: "Community Outreach", href: "/programs/community" },
-      { name: "Educational Initiatives", href: "/programs/education" },
+      { name: "Youth Programs", href: "/programs#youth" },
+      { name: "Community Outreach", href: "/programs#community" },
+      { name: "Educational Initiatives", href: "/programs#education" },
     ],
     title: "Programs",
     description:
@@ -51,13 +52,13 @@ const navItems = [
   { name: "Blog", href: "/blog" },
   {
     name: "Get Involved",
-    href: "/get-involved",
+    href: "/getInvolved",
     dropdown: [
-      { name: "Volunteer", href: "/get-involved/volunteer" },
-      { name: "Partnerships", href: "/get-involved/partnerships" },
-      { name: "Events", href: "/get-involved/events" },
+      { name: "Volunteer", href: "/getInvolved#volunteer" },
+      { name: "Partnerships", href: "/getInvolved#partnerships" },
+      { name: "Events", href: "/getInvolved#events" },
     ],
-    title: "Curriculum Activities",
+    title: "Get Involved",
     description:
       "Join our extracurricular activities that help youth build leadership, teamwork, and community engagement skills.",
     image: NavSportImage,
@@ -68,10 +69,10 @@ const navItems = [
   { name: "Contact", href: "/contact" },
 ];
 
-export default function SobjarNavbar() {
+export default function Navbar() {
   const { isOpen, toggleOpen, setOpen, setClose } = useDrawerStore();
   const [isMobile, setMobile] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState("null");
   const router = useRouter();
   const pathname = usePathname();
 
@@ -128,7 +129,7 @@ export default function SobjarNavbar() {
       )}
 
       {isMobile && isOpen && (
-        <div className={`${styles.navlinksContainer} ${styles.mobile}`}>
+        <div className={styles.navlinksContainer}>
           {navItems.map((item, index) => (
             <NavItem
               key={index}
@@ -188,10 +189,14 @@ function NavItem({
 
   const handleInteraction = () => {
     if (item.dropdown) {
-      setActiveDropdown(isActive ? null : index);
+      if (isMobile) {
+        setActiveDropdown(isActive ? null : index);
+      } else {
+        router.push(item.href);
+      }
     } else {
       if (isMobile) {
-        onNavItemClick(); 
+        onNavItemClick();
       }
       router.push(item.href);
     }
@@ -231,11 +236,21 @@ function NavItem({
         >
           {item.name}
           {item.dropdown && (
-            <ChevronDown
-              className={`${styles.chevron} ${
-                isActive ? styles.chevronOpen : ""
-              }`}
-            />
+            <>
+              {isMobile ? (
+                isActive ? (
+                  <MinusIcon className={styles.mobileIcon} />
+                ) : (
+                  <PlusIcon className={styles.mobileIcon} />
+                )
+              ) : (
+                <ChevronDown
+                  className={`${styles.chevron} ${
+                    isActive ? styles.chevronOpen : ""
+                  }`}
+                />
+              )}
+            </>
           )}
         </Link>
       </div>
@@ -277,10 +292,19 @@ function Dropdown({ item, setActiveDropdown, isMobile, onNavItemClick }) {
                 {dropdownItem.name}
               </Link>
             ))}
+            {isMobile && (
+              <Link
+                href={item.href}
+                className={styles.dropdownItem}
+                onClick={handleDropdownItemClick}
+              >
+                See more info
+              </Link>
+            )}
           </div>
         </div>
 
-        {item.image && !isMobile && (
+        {item.image && (
           <div className={styles.dropdownImageContainer}>
             <Image
               className={styles.dropdownImage}

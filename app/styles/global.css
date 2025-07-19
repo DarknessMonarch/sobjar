@@ -21,6 +21,7 @@
     --neutral-medium-gray: #6c7b7d;
     --neutral-dark-gray: #2c3e50;
     --neutral-black-light: #464646;
+    --neutral-black-lighter: #f7f7f7;
     --neutral-black: #1a1a1a;
 
     --background-main: #ffffff;
@@ -93,11 +94,25 @@
 
   body {
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.4;
      
     color: var(--neutral-dark-gray);
     background-color: var(--background-main);
     font-size: var(--text-normal);
+  }
+
+  .app {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    overflow: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   a,
@@ -156,14 +171,9 @@
     border: none;
     outline: none;
     cursor: pointer;
-    transition: var(--transition-normal);
-    border-radius: var(--corner-moderate);
-    padding: var(--space-small) var(--space-medium);
-    font-size: var(--text-normal);
     font-family: inherit;
-    background-color: var(--brand-primary);
     color: var(--neutral-white);
-    font-weight: 500;
+    transition: var(--transition-normal);
   }
 
 
@@ -171,7 +181,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--neutral-black) var(--background-secondary);
+  scrollbar-color: var(--brand-primary) var(--background-secondary);
 }
 
 *::-webkit-scrollbar {
@@ -185,7 +195,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--neutral-black);
+  background-color: var(--brand-primary);
   border-radius: var(--corner-subtle);
   border: 2px solid var(--background-secondary);
 }

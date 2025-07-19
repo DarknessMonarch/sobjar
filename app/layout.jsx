@@ -1,13 +1,15 @@
-import { Open_Sans } from "next/font/google";
-import "@/app/styles/global.css";
 import { Toaster } from 'sonner';
+import "@/app/styles/global.css";
+import { Inter } from "next/font/google";
 import Navbar from "@/app/component/Navbar";
+import Footer from "@/app/component/Footer";
 
-const open_sans = Open_Sans({
+const inter = Inter({
   display: "swap",
-  subsets: ["cyrillic"],
-  variable: "--font-open-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  
 });
 
 const SITE_URL = "https://sobjarcanada.org/";
@@ -86,7 +88,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${open_sans.variable}`}>
+      <body className={`${inter.variable}`}>
         <Toaster
           position="top-center"
           richColors={true}
@@ -98,8 +100,12 @@ export default function RootLayout({ children }) {
             },
           }}
         />
-        <Navbar />
-        {children}
+        <main className="app">
+          <Navbar />
+          {children}
+          <Footer />
+        </main>
+
       </body>
     </html>
   );

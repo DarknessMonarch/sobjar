@@ -1,23 +1,517 @@
 @media screen {
- 
-}
+  .heroSection {
+    gap: 30px;
+    display: flex;
+    padding: 20px 0;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+  }
 
+  .heroImage {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .imageTransition {
+    transform: scale(1.05);
+    filter: brightness(0.9) contrast(1.2);
+  }
+
+  .heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 144, 119, 0.2) 0%,
+      rgba(9, 132, 163, 0.4) 30%,
+      rgba(0, 184, 148, 0.2) 70%,
+      rgba(0, 109, 119, 0.15) 100%
+    );
+    z-index: 2;
+  }
+
+  .heroOverlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(0, 184, 148, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+  }
+
+  .floatingElements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .floatingCircle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 184, 148, 0.1) 50%,
+      transparent 100%
+    );
+    top: 10%;
+    right: 5%;
+    filter: blur(2px);
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .floatingCircle2 {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(9, 132, 163, 0.08) 50%,
+      transparent 100%
+    );
+    bottom: 20%;
+    left: 8%;
+    filter: blur(1px);
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  .floatingCircle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-15px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-15px) rotate(-1deg);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+
+  .heroContent {
+    gap: 30px;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    max-width: 1000px;
+    position: relative;
+    text-align: center;
+    flex-direction: column;
+    padding: var(--space-huge);
+    color: var(--neutral-white);
+    animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .contentFadeIn {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .contentFadeOut {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .heroAccent {
+    display: flex;
+    margin: 0 auto;
+    padding: 12px 24px;
+    width: fit-content;
+    border-radius: 25px;
+    letter-spacing: 1.5px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+
+  }
+
+  .heroAccent h1 {
+    font-size: 2rem;
+  }
+
+  .heroAccent h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  .impactStats {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .impactStats span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--corner-moderate);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--neutral-white) 0%, var(--teal-100) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .heroContent p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 700px;
+    opacity: 0.95;
+  }
+
+  .heroButton {
+    margin:0 auto ;
+    padding: 18px 40px;
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--brand-primary);
+    background: linear-gradient(135deg, var(--neutral-white) 0%, var(--teal-50) 100%);
+    border: 2px solid transparent;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .heroButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .heroButton:hover::before {
+    left: 100%;
+  }
+
+  .heroButton:hover {
+    color: var(--neutral-white);
+    transform: translateY(-4px) scale(1.05);
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+    box-shadow: 0 15px 35px rgba(0, 144, 119, 0.4);
+    border-color: var(--brand-accent-light);
+  }
+
+  .eventIndicators {
+    gap: 12px;
+    z-index: 3;
+    padding: 10px;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .playPauseButton {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .playPauseButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .playPauseIcon {
+    font-size: 18px;
+    color: var(--neutral-white);
+  }
+
+  .indicator {
+    width: 35px;
+    height: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .indicatorBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .indicatorProgress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--neutral-white) 0%, var(--teal-100) 100%);
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+
+  .indicator.active .indicatorBg {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+  }
+
+  .indicator:hover .indicatorBg {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+  }
+
+  .scrollIndicator {
+    gap: 15px;
+    z-index: 3;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--neutral-white);
+    animation: fadeInUp 2s ease-out;
+  }
+
+  .scrollIndicator p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  .scrollMouse {
+    width: 26px;
+    height: 42px;
+    position: relative;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+  }
+
+  .scrollWheel {
+    top: 8px;
+    left: 50%;
+    width: 4px;
+    height: 10px;
+    position: absolute;
+    border-radius: 2px;
+    background: var(--neutral-white);
+    transform: translateX(-50%);
+    animation: scrollAnimation 2.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollAnimation {
+    0% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateX(-50%) translateY(8px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(18px);
+    }
+  }
+}
 
 /* Mobile Landscape & Small Tablets (768px+) */
 @media only screen and (min-width: 48em) {
- 
+  .heroContent h1 {
+    font-size: var(--text-massive);
+  }
+
+  .heroSection {
+    height: 100vh;
+  }
+
+  .heroContent {
+    max-width: 900px;
+    gap: 10px;
+  }
+
+  .heroContent p {
+    font-size: 1.5rem;
+  }
+
+  .scrollIndicator {
+    bottom: 30px;
+    position: absolute;
+  }
+
+  .floatingCircle {
+    width: 350px;
+    height: 350px;
+  }
+
+  .floatingCircle2 {
+    width: 220px;
+    height: 220px;
+  }
 }
 
 /* Tablets & Small Laptops (784px - 1024px) */
 @media only screen and (min-width: 49em) and (max-width: 64em) {
+  .heroContent h1 {
+    font-size: 4rem;
+  }
 
+  .heroAccent h1 {
+    font-size: 2.5rem;
+  }
 }
 
 /* Desktop & Large Laptops (1025px - 1440px) */
 @media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  .heroContent h1 {
+    font-size: 4.5rem;
+  }
 
+  .heroContent p {
+    font-size: 1.6rem;
+  }
+
+  .heroAccent h1 {
+    font-size: 2.8rem;
+  }
 }
-/* Large Monitors & 4K Screens (1441px+) */
-@media only screen and (min-width: 91em) {
 
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .heroImage,
+  .floatingCircle,
+  .floatingCircle2,
+  .scrollWheel,
+  .contentFadeIn,
+  .contentFadeOut,
+  .imageTransition,
+  .heroButton::before,
+  .pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .heroButton:hover {
+    transform: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .heroOverlay {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
+  }
+
+  .heroAccent {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--neutral-black);
+  }
+
+  .heroButton {
+    background: var(--neutral-white);
+    border: 2px solid var(--neutral-black);
+  }
 }

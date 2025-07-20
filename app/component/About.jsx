@@ -84,13 +84,13 @@ const teamMembers = [
     description: "Leading community development initiatives",
   },
   {
-    name: "Coming Soon",
+    name: "Appointment Pending",
     role: "Youth Coordinator",
     image: CommunityImage,
     description: "Empowering the next generation",
   },
   {
-    name: "Coming Soon",
+    name: "Appointment Pending",
     role: "Family Support Specialist",
     image: AboutImage,
     description: "Supporting families in transition",
@@ -269,13 +269,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* Enhanced Leadership Section */}
       <section className={styles.leadershipSection}>
-        <div className={styles.contentWrapper}>
-          <div className={styles.leadershipHeader}>
+        <div className={styles.leadershipSectionWrapper}>
+          <div className={styles.valuesHeader}>
             <span className={styles.sectionTag}>Our Team</span>
-            <h2 className={styles.leadershipTitle}>Meet Our Leadership</h2>
-            <p className={styles.leadershipDescription}>
+            <h2>Meet Our Leadership</h2>
+            <p>
               Our leadership team brings together dedicated community advocates,
               educators, and service leaders committed to making a lasting
               difference in Alberta.
@@ -288,51 +287,18 @@ export default function About() {
                   <Image
                     src={member.image}
                     alt={member.name}
-                    width={200}
-                    height={200}
+                    width={100}
+                    height={100}
                     className={styles.leadershipImage}
                   />
-                  <div className={styles.leadershipImageOverlay}></div>
                 </div>
                 <div className={styles.leadershipInfo}>
-                  <h4 className={styles.leadershipName}>{member.name}</h4>
-                  <p className={styles.leadershipRole}>{member.role}</p>
-                  <p className={styles.leadershipDescription}>
-                    {member.description}
-                  </p>
+                  <h4>{member.name}</h4>
+                  <span>{member.role}</span>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Enhanced CTA Section */}
-      <section className={styles.ctaSection}>
-        <div className={styles.contentWrapper}>
-          <div className={styles.ctaContent}>
-            <div className={styles.ctaHeader}>
-              <span className={styles.ctaTag}>Join Our Movement</span>
-              <h2 className={styles.ctaTitle}>Take a Stand for Community</h2>
-              <p className={styles.ctaDescription}>
-                Be part of the change. Join our mission through volunteering,
-                partnerships, or participating in our events. Together, we can
-                make a lasting impact on youth, families, and communities.
-              </p>
-            </div>
-            <div className={styles.ctaButtons}>
-              <button className={styles.ctaPrimary}>
-                Get Involved
-                <IoArrowForward className={styles.ctaIcon} />
-              </button>
-              <button className={styles.ctaSecondary}>Learn More</button>
-            </div>
-          </div>
-        </div>
-        <div className={styles.ctaPattern}></div>
-        <div className={styles.ctaFloatingElements}>
-          <div className={styles.ctaFloatingElement}></div>
-          <div className={styles.ctaFloatingElement}></div>
         </div>
       </section>
     </div>

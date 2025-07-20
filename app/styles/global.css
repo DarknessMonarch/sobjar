@@ -84,6 +84,12 @@
     --border-medium: 2px solid #00b894;
     --border-thick: 3px solid #009077;
     --border-brand: 1px solid var(--brand-primary);
+
+    --font-weight-bold: 700;
+    --font-weight-semibold: 600;
+    --font-weight-medium: 500;
+    --font-weight-regular: 400;
+    --font-weight-light: 300;
   }
 
   * {
@@ -95,7 +101,7 @@
   body {
     font-weight: 400;
     line-height: 1.4;
-     
+
     color: var(--neutral-dark-gray);
     background-color: var(--background-main);
     font-size: var(--text-normal);
@@ -113,6 +119,58 @@
     overflow-y: auto;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  p {
+    font-weight: var(--font-weight-light);
+    text-align: justify;
+    line-height: 1.5;
+  }
+
+  p::first-letter {
+    text-transform: capitalize;
+  }
+
+  h1 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+  }
+
+  h2 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h3 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h4 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h5 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h6 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
   }
 
   a,
@@ -175,8 +233,6 @@
     color: var(--neutral-white);
     transition: var(--transition-normal);
   }
-
-
 }
 
 * {
@@ -234,7 +290,6 @@
   background-color: var(--teal-200);
   color: var(--brand-accent-dark);
 }
-
 
 /* Mobile Landscape & Small Tablets (768px+) */
 @media only screen and (min-width: 48em) {

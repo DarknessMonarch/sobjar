@@ -1,6 +1,7 @@
 @media screen {
   .heroSection {
     gap: 30px;
+    height: 100vh;
     display: flex;
     padding: 20px 0;
     position: relative;
@@ -39,6 +40,7 @@
       rgba(0, 109, 119, 0.15) 100%
     );
     z-index: 2;
+
   }
 
   .heroOverlay::before {
@@ -140,7 +142,7 @@
   }
 
   .heroContent {
-    gap: 30px;
+    gap: 20px;
     z-index: 3;
     width: 100%;
     display: flex;
@@ -148,7 +150,6 @@
     position: relative;
     text-align: center;
     flex-direction: column;
-    padding: var(--space-huge);
     color: var(--neutral-white);
     animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -198,8 +199,10 @@
 
   .heroAccent h2 {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 300;
+    text-transform: uppercase;
     opacity: 0.9;
+
   }
 
   .impactStats {
@@ -208,10 +211,11 @@
     margin: 20px 0;
     justify-content: center;
     flex-wrap: wrap;
+    border: 2px solid saddlebrown;
   }
 
   .impactStats span {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     padding: 8px 16px;
     background: rgba(255, 255, 255, 0.1);
@@ -221,7 +225,7 @@
   }
 
   .heroContent h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, var(--neutral-white) 0%, var(--teal-100) 100%);
     -webkit-background-clip: text;
@@ -230,7 +234,7 @@
   }
 
   .heroContent p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
     margin: 0 auto;
@@ -240,9 +244,9 @@
 
   .heroButton {
     margin:0 auto ;
-    padding: 18px 40px;
+    padding: 15px 20px;
     width: fit-content;
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 600;
     border-radius: 50px;
     text-transform: uppercase;
@@ -418,10 +422,6 @@
 @media only screen and (min-width: 48em) {
   .heroContent h1 {
     font-size: var(--text-massive);
-  }
-
-  .heroSection {
-    height: 100vh;
   }
 
   .heroContent {

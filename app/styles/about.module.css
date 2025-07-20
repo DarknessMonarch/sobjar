@@ -1,283 +1,138 @@
 @media screen {
   .aboutContainer {
     width: 100%;
-    background: var(--neutral-white);
+    padding: 10px;
+    background-color: var(--neutral-light-gray);
   }
 
-  /* Content Wrapper */
-  .contentWrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-medium);
-  }
-
-  /* Enhanced Hero Section */
   .heroSection {
-    position: relative;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    padding: 80px 0 120px 0;
-    overflow: hidden;
     display: flex;
+    margin: 0 auto;
+    padding: 50px 0;
     align-items: center;
   }
 
   .heroContent {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    z-index: 2;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
     position: relative;
+    flex-direction: column;
     animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .heroTextContent {
+    gap: 20px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
   }
 
   .herobadge {
-    display: inline-flex;
-    align-self: flex-start;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
   }
 
-  .heroTag {
-    background: #10b981;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
+  .heroTextContent h1 {
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 2rem;
   }
 
-  .heroTitle {
-    font-size: 48px;
-    line-height: 1.2;
-    font-weight: 800;
-    color: #1a202c;
-    margin: 0;
-  }
-
-  .heroAccent {
-    color: #10b981;
+  .heroTextContent h1 span {
+    color: var(--brand-primary);
     position: relative;
   }
 
-  .heroDescription {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #64748b;
-    margin: 0;
+  .heroTextContent p {
+    font-size: 1rem;
   }
 
   .heroImageContainer {
+    width: 100%;
+    height: 400px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 5px;
   }
 
   .heroImage {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    object-fit: cover;
+    border-radius: inherit;
   }
 
-  .heroStatsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
+  .heroStatsContainer {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .heroStatCard {
+    gap: 8px;
+    padding: 10px;
     display: flex;
-    flex-direction: column;
+    flex: 1 1 auto;
+    text-align: center;
     align-items: center;
-    gap: 12px;
-    padding: 24px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    flex-direction: column;
   }
 
-  .heroStatCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  .heroStatIconWrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
   }
 
   .heroStatIcon {
-    width: 48px;
-    height: 48px;
-    background: #ecfdf5;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #10b981;
-    font-size: 24px;
+    font-size: 20px;
   }
 
-  .heroStatNumber {
-    font-size: 28px;
+  .heroStatCard h2 {
     font-weight: 800;
-    color: #10b981;
+    font-size: 1.2rem;
   }
 
-  .heroStatLabel {
-    font-size: 14px;
-    color: #64748b;
-    text-align: center;
-    font-weight: 600;
+  .heroStatCard span {
+    font-size: 0.9rem;
   }
 
-  /* Values Section */
-  .valuesSection {
-    padding: 100px 0;
-    background: white;
-  }
-
-  .valuesHeader {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-
-  .sectionTag {
-    background: #ecfdf5;
-    color: #10b981;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-block;
-    margin-bottom: 16px;
-  }
-
-  .sectionTitle {
-    font-size: 42px;
-    font-weight: 800;
-    color: #1a202c;
-    margin: 0 0 24px 0;
-  }
-
-  .sectionSubtitle {
-    font-size: 18px;
-    color: #64748b;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  .valuesGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-
-  .valueCard {
-    position: relative;
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #f1f5f9;
-  }
-
-  .valueCard:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  }
-
-  .valueCardHeader {
-    margin-bottom: 24px;
-  }
-
-  .valueIcon {
-    width: 64px;
-    height: 64px;
-    background: var(--value-color, #10b981);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 28px;
-  }
-
-  .valueCardContent {
-    z-index: 2;
-    position: relative;
-  }
-
-  .valueTitle {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1a202c;
-    margin: 0 0 16px 0;
-  }
-
-  .valueDescription {
-    font-size: 16px;
-    color: #64748b;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* Main Content / About Sections */
   .mainContent {
-    padding: 100px 0;
-    background: #f8fafc;
+    padding: 50px 0;
+    background-color: var(--neutral-white);
   }
 
-  .aboutSection {
-    margin-bottom: 120px;
+  .contentWrapper {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    flex-direction: column;
   }
 
   .sectionContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .sectionContainer.reverse {
-    direction: rtl;
-  }
-
-  .sectionContainer.reverse > * {
-    direction: ltr;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
   }
 
   .sectionImageContainer {
+    flex: 50%;
     position: relative;
   }
 
   .imageWrapper {
+    height: 100%;
     position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
   }
 
   .sectionImage {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: all 0.3s ease;
-  }
-
-  .sectionImage:hover {
-    transform: scale(1.05);
+    border-radius: inherit;
   }
 
   .imageOverlay {
@@ -286,190 +141,239 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #10b981, transparent);
+    background: linear-gradient(45deg, var(--brand-primary), transparent);
     opacity: 0.1;
   }
 
   .sectionStats {
-    position: absolute;
-    bottom: -30px;
-    left: 30px;
+    gap: 5px;
+    bottom: 0;
+    width: 100%;
     display: flex;
-    gap: 16px;
-    z-index: 3;
+    position: absolute;
   }
 
   .statCard {
-    background: white;
-    padding: 20px 24px;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex: 1 1 auto;
     text-align: center;
-    min-width: 100px;
+    border-radius: 5px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--brand-primary);
+    box-shadow: var(--shadow-subtle);
+    background-color: var(--neutral-white);
   }
 
-  .statNumber {
-    display: block;
-    font-size: 24px;
-    font-weight: 800;
-    color: #10b981;
-  }
-
-  .statLabel {
-    font-size: 12px;
-    color: #64748b;
+  .statCard span {
+    font-size: 0.9rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
   .sectionContent {
+    gap: 10px;
+    flex: 50%;
     display: flex;
     flex-direction: column;
-    gap: 32px;
   }
 
-  .sectionContentHeader {
-    margin-bottom: 16px;
+  .sectionContent span {
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 5px;
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
   }
 
-  .sectionCategory {
-    background: #10b981;
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-block;
-    margin-bottom: 16px;
-  }
-
-  .sectionContentTitle {
-    font-size: 36px;
+  .sectionContent h2 {
     font-weight: 800;
-    color: #1a202c;
-    margin: 0;
-    line-height: 1.3;
+    font-size: 1.2rem;
   }
 
-  .sectionText {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .sectionDescription,
-  .sectionExtended {
-    font-size: 16px;
-    color: #64748b;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .sectionDescription {
-    font-weight: 500;
-    color: #475569;
+  .sectionContent p {
+    font-size: 1rem;
+    color: var(--neutral-dark-gray);
   }
 
   .sectionFeatures {
+    gap: 10px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
   }
 
   .featureItem {
+    padding: 5px;
     display: flex;
+    font-size: 1rem;
+    border-radius: 5px;
     align-items: center;
-    gap: 12px;
-    font-size: 16px;
-    color: #1a202c;
-    font-weight: 500;
+    background-color: var(--brand-primary);
   }
 
   .featureIcon {
-    color: #10b981;
-    font-size: 20px;
     flex-shrink: 0;
+    font-size: 20px;
+    color: var(--neutral-white);
   }
 
-  /* Achievements Section */
+  .valuesSection {
+    gap: 30px;
+    display: flex;
+    margin: 0 auto;
+    padding: 50px 0;
+    flex-direction: column;
+  }
+
+  .valuesHeader {
+    gap: 20px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .sectionTag {
+    padding: 10px;
+    margin: 0 auto;
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 5px;
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
+  }
+
+  .valuesHeader h2 {
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+
+  .valuesHeader p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .valuesGrid {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .valueCard {
+    gap: 15px;
+    padding: 20px;
+    display: flex;
+    height: 200px;
+    flex: 1 1 auto;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--shadow-moderate);
+  }
+
+  .valueCardHeader {
+    height: 50px;
+    display: flex;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
+  }
+
+  .valueIcon {
+    font-size: 24px;
+  }
+
+  .valueCardContent {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .achievementsSection {
+    gap: 10px;
+    display: flex;
     padding: 100px 0;
-    background: white;
+    flex-direction: column;
+    background: var(--neutral-white);
   }
 
   .achievementsHeader {
+    padding: 10px;
     text-align: center;
-    margin-bottom: 80px;
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
   }
 
-  .achievementsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+  .achievements {
+    display: flex;
+    flex-direction: column;
   }
 
   .achievementCard {
-    text-align: center;
+    gap: 10px;
+    flex: 1 1 1;
     padding: 40px;
-    background: #f8fafc;
-    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
+    color: var(--brand-primary);
+    border: 2px solid var(--brand-primary);
   }
 
   .achievementCard:hover {
-    transform: translateY(-8px);
-    background: white;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
   }
 
-  .achievementCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #10b981, #059669);
+  .achievementCard h3 {
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+
+  .achievementContent {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .achievementContent h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .achievementContent p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .achievementIconWrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand-primary);
   }
 
   .achievementIcon {
-    width: 80px;
-    height: 80px;
-    background: #10b981;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px auto;
-    color: white;
-    font-size: 36px;
+    font-size: 35px;
+    color: var(--neutral-white);
   }
 
-  .achievementMetric {
-    font-size: 42px;
-    font-weight: 800;
-    color: #10b981;
-    margin-bottom: 12px;
+  .achievementCard:hover .achievementIconWrapper {
+    background-color: var(--neutral-white);
   }
-
-  .achievementTitle {
-    font-size: 20px;
-    font-weight: 700;
-    color: #1a202c;
-    margin: 0 0 12px 0;
-  }
-
-  .achievementDescription {
-    font-size: 16px;
-    color: #64748b;
-    line-height: 1.6;
-    margin: 0;
+  .achievementCard:hover .achievementIcon {
+    color: var(--brand-primary);
   }
 
   /* Leadership Section */
@@ -543,7 +447,7 @@
     right: 0;
     bottom: 0;
     border-radius: 50%;
-    background: linear-gradient(45deg, #10b981, transparent);
+    background: linear-gradient(45deg, var(--brand-primary), transparent);
     opacity: 0.1;
   }
 
@@ -561,7 +465,7 @@
 
   .leadershipRole {
     font-size: 16px;
-    color: #10b981;
+    color: var(--brand-primary);
     font-weight: 600;
     margin: 0 0 16px 0;
   }
@@ -593,7 +497,7 @@
   }
 
   .ctaTag {
-    background: #10b981;
+    background: var(--brand-primary);
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
@@ -643,7 +547,7 @@
   }
 
   .ctaPrimary {
-    background: #10b981;
+    background: var(--brand-primary);
     color: white;
   }
 
@@ -684,94 +588,74 @@
       transform: translateY(0);
     }
   }
+}
 
-  /* Responsive Design */
-  @media only screen and (max-width: 768px) {
-    .heroContent {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      text-align: center;
-    }
-
-    .heroTitle {
-      font-size: 32px;
-    }
-
-    .sectionTitle,
-    .ctaTitle {
-      font-size: 28px;
-    }
-
-    .sectionContainer {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .reverse {
-      direction: ltr;
-    }
-
-    .sectionStats {
-      position: static;
-      margin-top: 20px;
-      justify-content: center;
-    }
-
-    .heroStatsGrid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .ctaButtons {
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .valuesGrid,
-    .achievementsGrid,
-    .leadershipGrid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .heroSection,
-    .valuesSection,
-    .achievementsSection,
-    .leadershipSection,
-    .mainContent,
-    .ctaSection {
-      padding: 60px 0;
-    }
-
-    .valueCard,
-    .achievementCard,
-    .leadershipCard {
-      padding: 30px;
-    }
-
-    .sectionContentTitle {
-      font-size: 24px;
-    }
+@media only screen and (min-width: 48em) {
+  .aboutContainer {
+    padding: 0;
   }
 
-  @media only screen and (max-width: 480px) {
-    .contentWrapper {
-      padding: 0 16px;
-    }
+  .heroSection {
+    padding: 100px 0;
+    max-width: 1200px;
+  }
 
-    .heroTitle {
-      font-size: 28px;
-    }
+  .heroContent {
+    flex-direction: row;
+  }
 
-    .sectionTitle,
-    .ctaTitle {
-      font-size: 24px;
-    }
+  .heroTextContent h1 {
+    font-size: 2.5rem;
+  }
 
-    .valueCard,
-    .achievementCard,
-    .leadershipCard {
-      padding: 24px;
-    }
+  .mainContent {
+    padding: 100px 0;
+  }
+
+  .sectionContainer {
+    flex-direction: row;
+  }
+
+  .sectionStats {
+    padding: 5px;
+  }
+
+  .statCard span {
+    font-size: 1.2rem;
+  }
+
+  .sectionContent h2 {
+    font-size: 2.5rem;
+  }
+
+  .valuesGrid {
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .valuesSection {
+    gap: 60px;
+    padding: 100px 0;
+    max-width: 1200px;
+  }
+
+  .valuesHeader h2 {
+    font-size: 2.5rem;
+  }
+
+  .achievements {
+    flex-direction: row;
+  }
+
+  .achievementCard h3 {
+    font-size: 1.5rem;
+  }
+
+  .achievementContent {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }

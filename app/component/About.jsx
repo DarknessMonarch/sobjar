@@ -19,12 +19,12 @@ import {
 const aboutSections = [
   {
     id: 1,
-    category: "Our Story",
-    title: "Founded on Community, Driven by Purpose",
+    category: "Our Heritage",
+    title: "Understanding the Somali Bantu Jareer/weyne Identity",
     description:
-      "Founded to meet the growing needs of the Somali Bantu (Jareer-weyne) community in Alberta, SOBJAR Canada was established with a clear mission: to empower our community and foster successful integration into Canadian society.",
+      "Somali Bantu Jareer/weyne is an ethnic group that is native to Somalia but culturally and physically distinct from other Somali ethnic groups. In much of dominant ethnic Somali Cushitic society, the Somali Bantu are considered as slaves and inferiors due to their ethnic background and negroid physical features, which is typical of black Africans from West, Central and Southern Africa.",
     extendedDescription:
-      "Recognizing challenges like access to services, educational gaps, and social isolation, we focused on advocacy, education, and direct support. Today, we stand as a voice for our community — investing in youth, supporting families, and helping newcomers build new lives in Canada.",
+      "Most of Somalia's first ethnic Bantu people arrived as migratory agriculturalists from West and Central Africa thousands of years ago and settled in the uninhabited and arable Juba and Shabelle Rivers Valleys. Despite facing historical discrimination, our community has maintained its rich cultural heritage while building new lives in Canada through resilience, unity, and determination.",
     image: AboutImage,
     stats: [
       { number: "2018", label: "Founded" },
@@ -37,21 +37,21 @@ const aboutSections = [
 const values = [
   {
     icon: IoHeartOutline,
-    title: "Community First",
+    title: "Cultural Preservation",
     description:
-      "Every decision we make puts our community's needs and wellbeing at the center.",
+      "We honor and preserve our unique Somali Bantu heritage while embracing our Canadian future.",
   },
   {
     icon: IoPeople,
-    title: "Inclusive Growth",
+    title: "Dignity & Equality",
     description:
-      "We believe in creating opportunities that uplift everyone, regardless of background.",
+      "We advocate for recognition, respect, and equal opportunities for all community members.",
   },
   {
     icon: IoCheckmarkCircle,
-    title: "Sustainable Impact",
+    title: "Community Empowerment",
     description:
-      "Our programs are designed to create lasting, meaningful change in people's lives.",
+      "We build strength through unity, supporting each other to overcome historical challenges.",
   },
 ];
 
@@ -107,15 +107,14 @@ export default function About() {
               <span>Help support us</span>
             </div>
             <h1>
-              Take a stand for
+              Preserving Our Heritage in
               <span> Canada</span>
             </h1>
             <p>
               We are a non-profit community organization serving the Somali
-              Bantu community in Alberta and across Canada. Our mission is to
-              support families, youth, and newcomers through education,
-              advocacy, and community programs that promote empowerment and
-              integration.
+              Bantu Jareer/weyne community in Alberta and across Canada. Our mission is to
+              support families, youth, and newcomers while preserving our unique cultural
+              identity and advocating for dignity, equality, and recognition in our new home.
             </p>
 
             <div className={styles.heroStatsContainer}>
@@ -203,15 +202,15 @@ export default function About() {
                 <div className={styles.sectionFeatures}>
                   <div className={styles.featureItem}>
                     <IoCheckmarkCircle className={styles.featureIcon} />
-                    <span>Community-driven approach</span>
+                    <span>Cultural heritage preservation</span>
                   </div>
                   <div className={styles.featureItem}>
                     <IoCheckmarkCircle className={styles.featureIcon} />
-                    <span>Culturally responsive programs</span>
+                    <span>Advocacy for equality and recognition</span>
                   </div>
                   <div className={styles.featureItem}>
                     <IoCheckmarkCircle className={styles.featureIcon} />
-                    <span>Evidence-based solutions</span>
+                    <span>Community-centered support programs</span>
                   </div>
                 </div>
               </div>
@@ -225,8 +224,8 @@ export default function About() {
           <span className={styles.sectionTag}>Our Values</span>
           <h2>What Drives Us Forward</h2>
           <p>
-            Our core values guide every decision and shape our approach to
-            community service
+            Our core values reflect our commitment to preserving our heritage while
+            building a stronger future for our community in Canada
           </p>
         </div>
         <div className={styles.valuesGrid}>

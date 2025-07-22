@@ -297,10 +297,7 @@ export default function Programs() {
                       </div>
                     ))}
                   </div>
-                  <Link href={program.href} className={styles.programLink}>
-                    <span>Learn More</span>
-                    <IoArrowForward className={styles.linkIcon} />
-                  </Link>
+         
                 </div>
               </div>
             </div>

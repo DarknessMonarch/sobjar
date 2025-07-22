@@ -9,6 +9,7 @@ import { FaFacebookF as FacebookIcon } from "react-icons/fa";
 import { BsInstagram as InstagramIcon } from "react-icons/bs";
 import { FaWhatsapp as WhatsappIcon } from "react-icons/fa";
 import { FaYoutube as YoutubeIcon } from "react-icons/fa";
+import { FaTiktok as TiktokIcon } from "react-icons/fa";
 import { IoLocationOutline as LocationIcon } from "react-icons/io5";
 
 export default function Footer() {
@@ -26,6 +27,10 @@ export default function Footer() {
 
   const handleFacebookClick = () => {
     window.open("https://m.facebook.com/SobjarCanada/", "_blank");
+  };
+
+  const handleTiktokClick = () => {
+    window.open("https://www.tiktok.com/search?lang=en&q=sobjarstar&t=1753184904436", "_blank");
   };
 
   return (
@@ -125,6 +130,13 @@ export default function Footer() {
               >
                 <YoutubeIcon />
               </button>
+              <button 
+                onClick={handleTiktokClick} 
+                className={styles.socialIcon}
+                aria-label="Follow us on TikTok"
+              >
+                <TiktokIcon />
+              </button>
             </div>
           </div>
         </div>
@@ -132,7 +144,7 @@ export default function Footer() {
 
       <div className={styles.footerBottom}>
         <div className={styles.footerBottomContent}>
-          <p>&copy; 2025 Sobjar Canada. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sobjar Canada. All rights reserved.</p>
           <div className={styles.legalLinks}>
             <Link href="/privacy" className={styles.legalLink}>Privacy Policy</Link>
             <Link href="/terms" className={styles.legalLink}>Terms of Use</Link>

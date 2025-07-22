@@ -1,15 +1,10 @@
 @media screen {
   .aboutContainer {
     width: 100%;
+    padding: 10px;
+    flex-direction: column;
     background: var(--background-main);
   }
-
-  .contentWrapper {
-    max-width: var(--max-content-width);
-    margin: 0 auto;
-    padding: 0 var(--space-large);
-  }
-
 
   @keyframes fadeInUp {
     from {
@@ -34,50 +29,41 @@
     transition: all 0.5s ease-in-out;
   }
 
-
-
-  /* Main Content */
-  .mainContent {
-    background: var(--background-main);
-    position: relative;
-    z-index: 10;
-  }
-
-  .aboutSection {
-    padding: calc(var(--space-massive) * 2) 0;
-    border-bottom: 1px solid var(--neutral-gray);
-  }
-
   .sectionContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: calc(var(--space-massive) * 1.5);
-    align-items: center;
+    height: 100%;
+    display: flex;
+    min-height: 500px;
+    flex-direction: column;
+    gap: var(--space-large);
   }
 
   .reverse {
-    direction: rtl;
+    flex-direction: column;
   }
 
   .sectionImageContainer {
+    flex: 1;
+    width: 100%;
+    height: 100%;
     position: relative;
-    direction: ltr;
   }
 
   .imageWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
     position: relative;
     overflow: hidden;
-    border-radius: var(--corner-prominent);
-    box-shadow: var(--shadow-prominent);
   }
 
   .sectionImage {
     width: 100%;
-    height: 450px;
+    height: 100%;
+    border-radius: 5px;
     object-fit: cover;
-    border-radius: var(--corner-prominent);
+    min-height: 400px;
+    position: relative !important;
     transition: var(--transition-slow);
-    display: block;
   }
 
   .imageOverlay {
@@ -86,192 +72,258 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 144, 119, 0.1), rgba(0, 184, 148, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(0, 144, 119, 0.1),
+      rgba(0, 184, 148, 0.1)
+    );
     border-radius: var(--corner-prominent);
   }
 
   .sectionStats {
-    position: absolute;
-    bottom: var(--space-large);
-    left: var(--space-large);
+    gap: 10px;
+    bottom: 5px;
+    width: 100%;
     display: flex;
-    gap: var(--space-medium);
-    flex-wrap: wrap;
+    padding: 10px;
+    position: absolute;
+    justify-content: space-between;
   }
 
   .statCard {
-    background: rgba(255, 255, 255, 0.95);
-    padding: var(--space-medium) var(--space-large);
-    border-radius: var(--corner-moderate);
-    backdrop-filter: blur(10px);
+    z-index: 2;
     display: flex;
-    flex-direction: column;
+    flex: 1 1 auto;
+    border-radius: 5px;
     align-items: center;
-    min-width: 100px;
-    box-shadow: var(--shadow-moderate);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    flex-direction: column;
+    padding: 10px;
+    background: var(--neutral-white);
   }
 
-  .statNumber {
-    font-size: var(--text-big);
-    font-weight: 800;
-    color: var(--brand-primary);
-    line-height: 1;
-  }
-
-  .statLabel {
-    font-size: var(--text-tiny);
-    color: var(--neutral-medium-gray);
-    margin-top: var(--space-tiny);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  .statCard span {
     font-weight: 600;
+    font-size: 1rem;
+    color: var(--brand-primary);
+  }
+
+   .statCard span:last-child {
+    font-weight: 300;
+    font-size: 0.9rem;
   }
 
   .sectionContent {
+    flex: 1;
+    gap: 20px;
+    display: flex;
+    text-align: start;
+    flex-direction: column;
     padding: var(--space-large) 0;
-    direction: ltr;
   }
 
   .sectionCategory {
-    display: inline-block;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 5px;
     color: var(--brand-primary);
-    font-size: var(--text-small);
-    font-weight: 600;
-    margin-bottom: var(--space-medium);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    background-color: var(--brand-accent-lighter);
+  
   }
 
   .sectionContentTitle {
-    font-size: clamp(1.8rem, 3vw, 2.2rem);
-    font-weight: 700;
-    margin-bottom: var(--space-large);
-    color: var(--neutral-dark-gray);
-    line-height: 1.3;
-  }
-
-  .sectionDescription {
-    font-size: var(--text-normal);
-    line-height: 1.7;
-    color: var(--neutral-medium-gray);
-    margin-bottom: var(--space-large);
-  }
-
-  .sectionExtended {
-    font-size: var(--text-normal);
-    line-height: 1.6;
-    color: var(--neutral-medium-gray);
-    margin-bottom: var(--space-large);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-weight-bold);
   }
 
   .sectionFeatures {
+    gap: 10px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-medium);
   }
 
   .featureItem {
+    gap: 10px;
+    padding: 5px;
     display: flex;
+    font-size: 1rem;
+    border-radius: 5px;
     align-items: center;
-    gap: var(--space-medium);
-    font-size: var(--text-normal);
-    color: var(--neutral-medium-gray);
+    background-color: var(--brand-primary);
+  }
+
+  .featureItem span {
+    color: var(--neutral-white);
+    background-color: var(--brand-primary);
   }
 
   .featureIcon {
-    color: var(--brand-accent);
-    font-size: var(--text-large);
     flex-shrink: 0;
+    font-size: 20px;
+    color: var(--neutral-white);
   }
 
-  /* CTA Section */
-  .ctaSection {
-    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent-dark) 100%);
-    padding: calc(var(--space-massive) * 2) 0;
+  .valuesSection {
+    gap: 40px;
+    display: flex;
+    padding: 30px 0;
+    flex-direction: column;
+    background: var(--background-secondary);
+  }
+
+  .valuesHeader {
+    gap: 10px;
+    display: flex;
     text-align: center;
-    color: white;
-    margin: calc(var(--space-massive) * 1.5) 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sectionTag {
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 5px;
+    color: var(--brand-primary);
+    background-color: var(--brand-accent-lighter);
+  }
+
+  .valuesHeader h2 {
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+
+  .valuesHeader p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .purposesGrid {
+    gap: 10px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    max-width: var(--max-content-width);
+  }
+
+  .valueCard {
+    padding: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--teal-100);
+    transition: var(--transition-normal);
+    border-radius: var(--corner-moderate);
+  }
+
+  .valueCard:hover {
+    transform: translateY(-4px);
+  }
+
+  .valueCardHeader {
+    margin-bottom: 10px;
+  }
+
+  .valueIcon {
+    font-size: 45px;
+    color: var(--brand-primary);
+    transition: var(--transition-normal);
+  }
+
+  .valueCard:hover .valueIcon {
+    color: var(--brand-accent);
+    transform: scale(1.1);
+  }
+
+  .valueCardContent {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .valueCardContent h3 {
+    color: var(--brand-primary);
+  }
+
+  .valueCardContent p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--brand-primary);
+  }
+
+  .ctaSection {
+    background: linear-gradient(
+      135deg,
+      var(--brand-primary) 0%,
+      var(--brand-accent-dark) 100%
+    );
+    padding: calc(10px * 2) 10px;
+    text-align: center;
+    color: var(--brand-primary-contrast);
+    margin: calc(10px * 1.5) 0;
     border-radius: var(--corner-prominent);
     position: relative;
     overflow: hidden;
   }
 
-  .ctaContent {
-    max-width: 700px;
+  .contentWrapper {
+    gap: 40px;
     margin: 0 auto;
-    position: relative;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    max-width: var(--max-content-width);
+  }
+
+  .ctaContent {
+    gap: 20px;
     z-index: 2;
+    display: flex;
+    margin: 0 auto;
+    max-width: 800px;
+    align-items: center;
+    flex-direction: column;
   }
 
-  .ctaTag {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: var(--space-small) var(--space-large);
-    border-radius: var(--corner-circle);
-    font-size: var(--text-small);
-    font-weight: 600;
-    margin-bottom: var(--space-large);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .ctaTitle {
+  .ctaContent h2 {
+    text-align: center;
+    font-weight: var(--font-weight-bold);
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: var(--space-large);
-    color: white;
   }
 
-  .ctaDescription {
+  .ctaContent p {
+    text-align: center;
     font-size: var(--text-medium);
-    line-height: 1.6;
-    margin-bottom: var(--space-massive);
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--neutral-light-gray);
   }
 
-  .ctaButtons {
+  .ctaButton {
+    gap: 10px;
     display: flex;
-    gap: var(--space-large);
+    cursor: pointer;
+    font-size: 1rem;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px 30px;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .ctaPrimary {
-    padding: var(--space-medium) var(--space-massive);
-    border-radius: var(--corner-circle);
-    font-size: var(--text-normal);
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition-normal);
-    display: flex;
-    align-items: center;
-    gap: var(--space-small);
-    text-decoration: none;
-    background: white;
     color: var(--brand-primary);
-    box-shadow: var(--shadow-moderate);
+    background: var(--brand-primary-contrast);
+    font-weight: var(--font-weight-semibold);
   }
 
-  .ctaSecondary {
-    padding: var(--space-medium) var(--space-massive);
-    border-radius: var(--corner-circle);
-    font-size: var(--text-normal);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition-normal);
-    background: transparent;
-    color: white;
-    border: 2px solid white;
+  .ctaButton:hover {
+    transform: translateY(-2px);
+    background: var(--neutral-light-gray);
   }
 
   .ctaIcon {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: var(--transition-normal);
+  }
+
+  .ctaButton:hover .ctaIcon {
+    transform: scale(1.1);
   }
 
   .ctaPattern {
@@ -285,52 +337,82 @@
     transform: rotate(15deg);
   }
 
+
 }
 
-@media only screen and (max-width: 48em) {
+/* Tablet and up styles */
+@media only screen and (min-width: 48em) {
   .sectionContainer {
-    grid-template-columns: 1fr !important;
-    gap: var(--space-large) !important;
+    flex-direction: row;
+    min-height: 600px;
   }
-  
+
   .reverse {
-    direction: ltr !important;
+    flex-direction: row-reverse;
   }
-  
-  .sectionStats {
-    position: static !important;
-    margin-top: var(--space-medium) !important;
-    justify-content: center !important;
+
+  .valuesSection {
+    padding: 100px 0;
   }
-  
-  .heroStats {
-    gap: var(--space-large) !important;
+
+  .valuesHeader h2 {
+    font-size: 2.5rem;
   }
-  
-  .ctaButtons {
-    flex-direction: column !important;
+
+  .sectionImageContainer {
+    height: auto;
+    min-height: 500px;
   }
-  
-  .valuesGrid {
-    grid-template-columns: 1fr !important;
+
+  .imageWrapper {
+    height: 100%;
+  }
+
+  .purposesGrid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .valueCard {
+    flex: 1 1 calc(50% - var(--space-large));
+    min-width: 300px;
   }
 }
 
-/* Accessibility Improvements */
+/* Large tablet and desktop */
+@media only screen and (min-width: 64em) {
+  .purposesGrid {
+    flex-wrap: wrap;
+  }
+
+  .valueCard {
+    flex: 1 1 calc(33.333% - var(--space-large));
+  }
+}
+
+/* Large desktop */
+@media only screen and (min-width: 90em) {
+  .valueCard {
+    flex: 1 1 calc(25% - var(--space-large));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .heroContent,
   .contentFadeIn,
-  .contentFadeOut {
-    animation: none !important;
-    transition: none !important;
+  .contentFadeOut,
+  .valueCard {
+    animation: none;
+    transition: none;
+  }
+
+  .valueCard:hover {
+    transform: none;
   }
 }
 
-/* High Contrast Mode */
 @media (prefers-contrast: high) {
-
-
-  .ctaPrimary {
+  .ctaButton {
     background: var(--neutral-white);
     border: 2px solid var(--neutral-black);
   }
